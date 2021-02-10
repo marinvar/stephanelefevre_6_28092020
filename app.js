@@ -6,7 +6,9 @@ const path = require('path');
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 
-mongoose.connect('',
+mongoose.set('useCreateIndex', true);
+
+mongoose.connect('mongodb+srv://poweruser:mPkI0POxFBKS4e3N@cluster0.oeczv.mongodb.net/so_pekocko?retryWrites=true&w=majority',
 { useNewUrlParser: true,
 useUnifiedTopology: true })
 .then(() => console.log('Connexion à MongoDB réussie !'))
