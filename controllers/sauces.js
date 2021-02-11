@@ -20,7 +20,7 @@ exports.modifySauce = (req, res, next) => {
   .then(sauce => {
     const filename = sauce.imageUrl.split('/images/')[1];
     if (req.file) {
-      fs.unlink(`images/${filename}`, () => console.log('Image deleted'));
+      fs.unlink(`images/${filename}`, error => { if(error) console.log(error) });
     }
     const sauceObject = req.file ? {
       ...JSON.parse(req.body.sauce),
