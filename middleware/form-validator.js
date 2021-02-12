@@ -1,4 +1,4 @@
-const formValidation = (req, res, next) => {
+const formValidator = (req, res, next) => {
 
   const regX = /[^\p{L}\s\d'-]+/ug;
   
@@ -18,4 +18,4 @@ const formValidation = (req, res, next) => {
   next();
 }
 
-module.exports = formValidation;
+module.exports = formValidator;
