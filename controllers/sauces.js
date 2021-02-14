@@ -1,6 +1,9 @@
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
 
+/**
+ * function creating the sauce and inserting it in database, using mongoose
+ */
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
@@ -15,6 +18,9 @@ exports.createSauce = (req, res, next) => {
   .catch(error => res.status(400).json({ error }));
 };
 
+/**
+ * function retrieving sauce from database and moditying it in database, authorizing image change
+ */
 exports.modifySauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
   .then(sauce => {
@@ -33,6 +39,9 @@ exports.modifySauce = (req, res, next) => {
   .catch(error => res.status(400).json({ error }));
 };
 
+/**
+ * function retrieving and deleting totally a sauce in database
+ */
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
   .then(sauce => {
@@ -46,18 +55,27 @@ exports.deleteSauce = (req, res, next) => {
   .catch(error => res.status(500).json({ error }));
 }
 
+/**
+ * function retrieving data for a specific sauce in database
+ */
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
   .then(sauce => res.status(200).json(sauce))
   .catch(error => res.status(404).json({ error }));
 };
 
+/**
+ * function retrieving all available sauces in database
+ */
 exports.getAllSauces = (req, res, next) => {
   Sauce.find()
   .then(sauces => res.status(200).json(sauces))
   .catch(error => res.status(400).json({ error }));
 };
 
+/**
+ * function adding or removing likes and dislikes on a specific sauce
+ */
 exports.likeOneSauce = (req, res, next) => {
   const userId = req.body.userId;
   const like = req.body.like;

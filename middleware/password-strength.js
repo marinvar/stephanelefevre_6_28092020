@@ -1,4 +1,6 @@
-
+/**
+ * middleware verifying password strength before saving in database for new users
+ */
 const passwordStrength = (req, res, next) => {
   try {
     const regX = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/g;

@@ -17,6 +17,9 @@ useUnifiedTopology: true })
 
 const app = express();
 
+/**
+ * Helmet is used for security purposes, to avaoid several attacks like xss
+ */
 app.use(helmet());
 
 app.use((req, res, next) => {

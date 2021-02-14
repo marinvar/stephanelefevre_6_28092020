@@ -1,5 +1,8 @@
 const validator = require('email-validator');
 
+/**
+ * middleware validating email address before use in app
+ */
 const mailValidator = (req, res, next) => {
   try {
     if (!validator.validate(req.body.email)) {

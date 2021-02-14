@@ -1,3 +1,6 @@
+/**
+ * middleware validating user inputs with string regex
+ */
 const formValidator = (req, res, next) => {
 
   const regX = /[^\p{L}\s\d'-]+/ug;

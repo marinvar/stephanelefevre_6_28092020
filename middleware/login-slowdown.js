@@ -1,5 +1,8 @@
 const slowDown = require('express-slow-down');
 
+/**
+ * middleware slowing down login process to securize app and stop brute force attempts
+ */
 const loginSlowdown = slowDown({
   windowMs: 15*60*1000, // 15 minutes
   delayAfter: 3, //Allows 3 requests at full speed, then...

@@ -1,3 +1,6 @@
+/**
+ * middleware encrypting mail address for database storage
+ */
 const crypto = require('crypto');
 
 const mailCrypter = (req, res, next) => {

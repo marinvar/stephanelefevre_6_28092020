@@ -10,6 +10,9 @@ const MIME_TYPES = {
   'image/tiff': 'tif'
 };
 
+/**
+ * middleware permitting image files in the app and encoding image names
+ */
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, 'images');
