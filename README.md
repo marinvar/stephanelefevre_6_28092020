@@ -10,3 +10,5 @@ add separate .env file in main directory
 run npm install  
 run npm start  
 server is watching on port number 3000 if available
+
+To delete an user using postman, use bearer token in 'authentification' tab and { "email": "email_to_delete" } in body tab (as json data)
