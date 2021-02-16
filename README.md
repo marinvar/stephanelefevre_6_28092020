@@ -6,7 +6,12 @@ run npm install
 run npm start  
 
 for backend, clone this repository  
-add separate .env file in main directory  
+add .env file received separately in main directory  
+you can use the .env_backup file as model  
+DB_CONNECT is the database connection string, (i.e. mongodb+srv://USERNAME:PASSWORD@cluster0.mongodb.net/DB_NAME?retryWrites=true&w=majority)  
+TOKEN_PASS is a strong passphrase (i.e. 65g45h4j7o8ll31sz14nd1kuj69j45lqg14g36qd7g9ds3sd8gh1fd2) to encode unidirectionnaly the password  
+EMAIL_PASS is a strong passphrase (i.e. 65g45h4j7o8ll31sz14nd1kuj69j45lqg14g36qd7g9ds3sd8gh1fd2) to encode bidirectionnaly the email
+
 run npm install  
 run npm start  
 server is watching on port number 3000 if available
