@@ -9,7 +9,7 @@ const userRoutes = require('./routes/user');
 
 mongoose.set('useCreateIndex', true);
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oeczv.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+mongoose.connect(`${process.env.DB_CONNECT}`,
 { useNewUrlParser: true,
 useUnifiedTopology: true })
 .then(() => console.log('Connexion à MongoDB réussie !'))
