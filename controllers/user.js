@@ -46,3 +46,16 @@ exports.login = (req, res, next) => {
   })
   .catch(error => res.status(500).json({ error }));
 };
+
+/**
+ * function permitting user deletion from database
+ */
+exports.signout = (req, res, next) => {
+  User.findOne({ email: req.body.email })
+  .then(() => {
+    User.deleteOne({ email: req.body.email })
+    .then(()=> res.status(200).json({ message: 'User deleted !' }))
+    .catch(error => res.status(400).json({ error }));
+  })
+  .catch(error => res.status(500).json({ error }));
+};
