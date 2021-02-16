@@ -52,9 +52,12 @@ exports.login = (req, res, next) => {
  */
 exports.signout = (req, res, next) => {
   User.findOne({ email: req.body.email })
-  .then(() => {
+  .then(user => {
+    if (!user) {
+      return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+    }
     User.deleteOne({ email: req.body.email })
-    .then(()=> res.status(200).json({ message: 'User deleted !' }))
+    .then(()=> res.status(200).json({ message: 'Utilisateur effacé !' }))
     .catch(error => res.status(400).json({ error }));
   })
   .catch(error => res.status(500).json({ error }));
